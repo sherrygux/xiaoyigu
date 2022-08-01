@@ -1,0 +1,112 @@
+\glsdefs@newdocentry{lqr}%
+{%
+name={LQR},%
+sort={LQR},%
+type={acronym},%
+first={Linear Quadratic Regulator\glsspace (LQR)},%
+firstplural={Linear Quadratic Regulator\acrpluralsuffix \glsspace (LQR\acrpluralsuffix )},%
+text={LQR},%
+plural={LQR\acrpluralsuffix },%
+description={Linear Quadratic Regulator},%
+descriptionplural={Linear Quadratic Regulator\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Linear Quadratic Regulator},%
+longplural={Linear Quadratic Regulators},%
+short={LQR},%
+shortplural={LQRs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{mpc}%
+{%
+name={MPC},%
+sort={MPC},%
+type={acronym},%
+first={Model Predictive Control\glsspace (MPC)},%
+firstplural={Model Predictive Control\acrpluralsuffix \glsspace (MPC\acrpluralsuffix )},%
+text={MPC},%
+plural={MPC\acrpluralsuffix },%
+description={Model Predictive Control},%
+descriptionplural={Model Predictive Control\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Model Predictive Control},%
+longplural={Model Predictive Controls},%
+short={MPC},%
+shortplural={MPCs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{dmpc}%
+{%
+name={DMPC},%
+sort={DMPC},%
+type={acronym},%
+first={distributed Model Predictive Control\glsspace (DMPC)},%
+firstplural={distributed Model Predictive Control\acrpluralsuffix \glsspace (DMPC\acrpluralsuffix )},%
+text={DMPC},%
+plural={DMPC\acrpluralsuffix },%
+description={distributed Model Predictive Control},%
+descriptionplural={distributed Model Predictive Control\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={distributed Model Predictive Control},%
+longplural={distributed Model Predictive Controls},%
+short={DMPC},%
+shortplural={DMPCs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{lti}%
+{%
+name={LTI},%
+sort={LTI},%
+type={acronym},%
+first={linear time-invariant\glsspace (LTI)},%
+firstplural={linear time-invariant\acrpluralsuffix \glsspace (LTI\acrpluralsuffix )},%
+text={LTI},%
+plural={LTI\acrpluralsuffix },%
+description={linear time-invariant},%
+descriptionplural={linear time-invariant\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={linear time-invariant},%
+longplural={linear time-invariants},%
+short={LTI},%
+shortplural={LTIs},%
+counter={page},%
+parent={},%
+%
+}%
+

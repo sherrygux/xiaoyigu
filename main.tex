@@ -1,0 +1,271 @@
+\documentclass[11pt,a4paper,twoside,bibliography=totoc,listof=totoc,titlepage=true,chapterprefix=true]{scrreprt}
+
+%% ---------------------------------------------------------------------------
+%% Packages
+%% ---------------------------------------------------------------------------
+
+\usepackage[english]{babel} %Option: german für deutsche Variante
+\usepackage[T1]{fontenc}   
+\usepackage[utf8]{inputenc} 
+\usepackage{lmodern}
+%\usepackage{bibgerm}
+\KOMAoptions{parskip=half, numbers=noenddot} 
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfig} % uses for subfloat: two pictues side by side
+\usepackage{amsthm} % needed for proofs
+\usepackage{multirow} % multirows for tables
+\usepackage{placeins} % for floatbarrier
+\usepackage{booktabs} % Für schönere wissenschaftliche Tabellen
+\usepackage{tikz}
+\usepackage[backend=biber, style=alphabetic]{biblatex} 
+\usepackage[pdfpagelabels,hidelinks]{hyperref}
+\usepackage{csquotes} % Wenn babel mit biblatex, dann wird csqoutes empfohlen, damit zitierter Text richtiges Typenset hat
+\usepackage[numbered]{bookmark} % Für nummerierte PDF-Lesezeichen entsprechend der Chapter/Section-Nummer
+
+\usepackage{geometry} % Einstellungen der Ränder 
+\geometry{paperwidth=210mm, paperheight=297mm, height=247mm,width=167mm,top=21.5mm,right=15mm}%,headsep=7mm,headheight=10mm,footskip=11mm}
+%\geometry{includehead,includefoot,inner=3cm,outer=2cm,top=2cm,bottom=2.5cm}
+
+\usepackage{supertabular}
+\usepackage{color} % Für farbige Boxen --> Gut für Notizen
+
+\usepackage{xifthen}							% provides \isempty test
+
+\usepackage[acronym,nonumberlist,section]{glossaries} % test this package
+
+%\usepackage[ruled, vlined, linesnumbered,german]{algorithm2e}
+\usepackage[ruled, vlined, linesnumbered]{algorithm2e}
+\usepackage{listings}
+\usepackage[headsepline, plainfootsepline]{scrlayer-scrpage}
+
+%% ---------------------------------------------------------------------------
+%% Definitions
+%% ---------------------------------------------------------------------------
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{assumption}{Assumption}[chapter]
+
+%% Heading styles
+\RedeclareSectionCommand[%
+		tocentryformat={\rmfamily\bfseries},%
+		tocpagenumberformat=\rmfamily
+	]{chapter}
+
+\addtokomafont{part}{\rmfamily}
+\addtokomafont{chapterprefix}{\huge\rmfamily}
+\addtokomafont{chapter}{\Huge\rmfamily}
+\addtokomafont{section}{\rmfamily}
+\addtokomafont{section}{\rmfamily}
+\addtokomafont{subsection}{\rmfamily}
+\addtokomafont{subsubsection}{\rmfamily}
+\addtokomafont{paragraph}{\rmfamily}
+\addtokomafont{subparagraph}{\rmfamily}
+
+%% Bibliography Styles
+%\renewcommand{\mkbibnamefirst}[1]{\textsc{#1}}
+%\renewcommand{\mkbibnamelast}[1]{\textsc{#1}}
+%\renewcommand{\mkbibnameprefix}[1]{\textsc{#1}}
+%\renewcommand{\mkbibnameaffix}[1]{\textsc{#1}}
+
+%% Style for Algorithms
+\newcommand{\listofalgorithmes}{\tocfile{\listalgorithmcfname}{loa}}
+\SetKwRepeat{Do}{do}{while}%
+\SetAlFnt{\small} %\SetAlFnt{\footnotesize }
+\SetKwComment{Comment}{$\triangleright$\ }{}
+\SetVlineSkip{2pt} 
+\DontPrintSemicolon
+\SetNlSty{}{}{:} % No Bold Line Numbers
+\SetAlgoNlRelativeSize{-1} % relative Size of Line Number
+\SetCommentSty{} % Sonst wäre Kommentar Fett    
+
+%colorbox with line break
+%background: colorbox adds some space before and after the text inside it, this space is \fboxsep
+\newcommand{\hly}[1]{\colorbox{yellow}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{#1}}} 
+\newcommand{\hlg}[1]{\colorbox{green}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{#1}}}
+\newcommand{\hlr}[1]{\colorbox{red}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{#1}}}
+
+%$ Listing Style
+%% Listing Style for Matlab
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{numbers=left, numberstyle=\tiny, numbersep=5pt} \lstset{language=Matlab}
+\lstset{basicstyle=\ttfamily}
+\lstset{literate=%
+	{Ö}{{\"O}}1
+	{Ä}{{\"A}}1
+	{Ü}{{\"U}}1
+	{ß}{{\ss}}2
+	{ü}{{\"u}}1
+	{ä}{{\"a}}1
+	{ö}{{\"o}}1
+} 
+\lstset{ %
+	backgroundcolor=\color{white},   		% choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+	basicstyle=\footnotesize,        					% the size of the fonts that are used for the code
+	breakatwhitespace=false,         			% sets if automatic breaks should only happen at whitespace
+	breaklines=true,                 								% sets automatic line breaking
+	captionpos=b,                    								% sets the caption-position to bottom
+	commentstyle=\color{mygreen},    	% comment style
+	deletekeywords={...},            						% if you want to delete keywords from the given language
+	escapeinside={\%*}{*)},          					% if you want to add LaTeX within your code
+	extendedchars=true,              						% lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+	frame=single,                    								% adds a frame around the code
+	keepspaces=true,                 						% keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	keywordstyle=\color{blue},       				% keyword style
+	language=Octave,                 						% the language of the code
+	morekeywords={*,...},            						% if you want to add more keywords to the set
+	numbers=left,                    									% where to put the line-numbers; possible values are (none, left, right)
+	numbersep=5pt,                   						% how far the line-numbers are from the code
+	numberstyle=\tiny\color{mygray}, 		% the style that is used for the line-numbers
+	rulecolor=\color{black},         						% if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	showspaces=false,                						% show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	showstringspaces=false,          				% underline spaces within strings only
+	showtabs=false,                  							% show tabs within strings adding particular underscores
+	stepnumber=2,                    							% the step between two line-numbers. If it's 1, each line will be numbered
+	stringstyle=\color{mymauve},     			% string literal style
+	tabsize=2,                       										% sets default tabsize to 2 spaces
+	title=\lstname                   									% show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+% Kopf- und Fußzeile Einstellungen
+\clearpairofpagestyles % Kopf und Fußzeile löschen
+\pagestyle{scrheadings}
+\lehead[]{\pagemark}
+\rehead[]{\upshape{\headmark}}
+\lohead[]{\upshape{\headmark}}
+\rohead[]{\pagemark}
+\automark[section]{chapter} % Kopfzeile: Linke Seite: Section, Rechte Seite: Chapter
+
+\makeglossaries
+
+\newcommand{\addWithPreCommaSpace}[1]{%
+	\if\relax #1\relax% If statement for checking empty parameter
+	% if #1 is empty
+	\else%
+	, #1% if #1 is not empty
+	\fi%
+}
+
+%% ---------------------------------------------------------------------------
+%% Thesis Information
+%% ---------------------------------------------------------------------------
+
+\newcommand{\Dachorganisation}{Karlsruher Institut für Technologie - KIT}
+\newcommand{\Institut}{Institut für Regelungs- und Steuerungssysteme - IRS}
+\newcommand{\titelderarbeit}{Stiffness Enhancing Action Planning for Coupled Industrial Robots in Manufacturing Processes}
+\newcommand{\nummerderarbeit}{Bxxx} % Or: Mxxx
+\newcommand{\artderarbeit}{Master's Thesis} % Or: Master's Thesis
+\newcommand{\student}{Xiaoyi Gu}
+\newcommand{\studentgrad}{M.Sc} % Or: B.Sc.
+\newcommand{\betreuer}{Xin Ye}
+\newcommand{\betreuergrad}{M.Sc.}
+\newcommand{\ausgabe}{December 31st, 2021}
+\newcommand{\abgabe}{August 12th, 2022}
+\newcommand{\sperrvermerkUnternehmen}{Xxxx Gmbh}
+\newcommand{\sperrvermerkDatum}{August 12th, 2022} % 5 years after submission
+
+%% ---------------------------------------------------------------------------
+%% Additional Files and Setup
+%% ---------------------------------------------------------------------------
+
+\hypersetup{
+	pdfpagelayout=TwoPageRight,
+	pdfstartview=Fit,
+	pdfauthor={\student},
+	pdftitle={\titelderarbeit},
+	pdfsubject={\artderarbeit}
+}
+
+\addbibresource{04_bib/literature.bib}
+% Setup for Title Page
+\include{01_special_pages/title_page.tex}
+
+% Start Dokument 
+\begin{document}
+	\pagenumbering{roman}
+	
+	%% ---------------------------------------------------------------------------
+	%% ---------------------------------------------------------------------------
+	
+	\pdfbookmark{Front Page}{title}
+	\maketitle % Command redefined in title_page.tex
+	
+	% If no non-disclosure notice is required, remove the following three lines
+%	\cleardoublepage
+%	\pdfbookmark{Non Disclosure}{nondisclosure}
+%	\include{01_special_pages/nondisclosure.tex}
+%	
+	\cleardoublepage
+	\pdfbookmark{Short Description}{}
+	\include{01_special_pages/description.tex} % description
+	\restoregeometry % Since the description uses a different geometry
+	
+	\cleardoublepage
+	\pdfbookmark{Acknowledgements}{acknowledgement}
+	\include{01_special_pages/acknowledgments.tex}
+	
+	\cleardoublepage
+	\pdfbookmark{Abstract}{abstract}
+	\include{01_special_pages/abstract.tex}
+	
+	\cleardoublepage
+	\pdfbookmark{Contents}{toc}
+	\tableofcontents
+	
+	\cleardoublepage
+	\listoffigures
+	
+	\cleardoublepage
+	\listoftables
+	
+	\cleardoublepage
+	\include{01_special_pages/symbol_directory.tex}
+	\cleardoublepage
+	
+	\pagenumbering{arabic}
+		
+	%% ---------------------------------------------------------------------------
+	%% Chapters
+	%% ---------------------------------------------------------------------------
+	
+	% Add own content here. Use \cleardoublepage between chapters
+	\include{02_chapter/01_Introduction.tex}
+	\cleardoublepage
+	\include{02_chapter/02_Fundamentals.tex}
+	\cleardoublepage 
+	\include{02_chapter/03_MainPart.tex}
+%	\printbibliography
+	%% ---------------------------------------------------------------------------
+	%% Appendices
+	%% ---------------------------------------------------------------------------
+	
+	\begin{appendix}
+		\cleardoublepage
+		\include{02_chapter/A_Proofs.tex}
+	\end{appendix}
+	
+	%% ---------------------------------------------------------------------------
+	%% ---------------------------------------------------------------------------
+	
+	% Listings - remove if not required
+	\cleardoublepage
+	\lstlistoflistings % Requires the listings package
+	
+	% Algorithms - remove if not required
+	\cleardoublepage
+	\listofalgorithms % Requires the either "algorithm2e" or "algorithms" packages
+	\addcontentsline{toc}{chapter}{List of algorithms}
+
+	\cleardoublepage
+	\pagenumbering{Roman}
+	\printbibliography
+	
+%	\bibliography{04_bib/bib}
+%\nocite{*}
+%\bibliography{04_bib/literature} 
+	
+\end{document}
