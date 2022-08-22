@@ -157,16 +157,17 @@
 \newcommand{\Dachorganisation}{Karlsruher Institut für Technologie - KIT}
 \newcommand{\Institut}{Institut für Regelungs- und Steuerungssysteme - IRS}
 \newcommand{\titelderarbeit}{Stiffness Enhancing Action Planning for Coupled Industrial Robots in Manufacturing Processes}
-\newcommand{\nummerderarbeit}{Bxxx} % Or: Mxxx
+\newcommand{\nummerderarbeit}{M1039} % Or: Mxxx
 \newcommand{\artderarbeit}{Master's Thesis} % Or: Master's Thesis
 \newcommand{\student}{Xiaoyi Gu}
-\newcommand{\studentgrad}{M.Sc} % Or: B.Sc.
+\newcommand{\studentgrad}{B.Sc.} % Or: B.Sc.
 \newcommand{\betreuer}{Xin Ye}
 \newcommand{\betreuergrad}{M.Sc.}
 \newcommand{\ausgabe}{December 31st, 2021}
-\newcommand{\abgabe}{August 12th, 2022}
+\newcommand{\vortrag}{July 26th, 2022}
+\newcommand{\abgabe}{August 19th, 2022}
 \newcommand{\sperrvermerkUnternehmen}{Xxxx Gmbh}
-\newcommand{\sperrvermerkDatum}{August 12th, 2022} % 5 years after submission
+\newcommand{\sperrvermerkDatum}{August 19th, 2022} % 5 years after submission
 
 %% ---------------------------------------------------------------------------
 %% Additional Files and Setup
@@ -184,6 +185,8 @@
 % Setup for Title Page
 \include{01_special_pages/title_page.tex}
 
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
 % Start Dokument 
 \begin{document}
 	\pagenumbering{roman}
@@ -237,7 +240,11 @@
 	\cleardoublepage
 	\include{02_chapter/02_Fundamentals.tex}
 	\cleardoublepage 
-	\include{02_chapter/03_MainPart.tex}
+	\include{02_chapter/03_Global_optimization_scheme.tex}
+        \cleardoublepage 
+	\include{02_chapter/04_.tex}
+        \cleardoublepage 
+	\include{02_chapter/05_.tex}
 %	\printbibliography
 	%% ---------------------------------------------------------------------------
 	%% Appendices
@@ -263,6 +270,8 @@
 	\cleardoublepage
 	\pagenumbering{Roman}
 	\printbibliography
+
+
 	
 %	\bibliography{04_bib/bib}
 %\nocite{*}
