@@ -20,7 +20,8 @@
 \usepackage{placeins} % for floatbarrier
 \usepackage{booktabs} % Für schönere wissenschaftliche Tabellen
 \usepackage{tikz}
-\usepackage[backend=biber, style=alphabetic]{biblatex} 
+\usepackage[backend=biber,style=alphabetic, maxbibnames=99]{biblatex}
+
 \usepackage[pdfpagelabels,hidelinks]{hyperref}
 \usepackage{csquotes} % Wenn babel mit biblatex, dann wird csqoutes empfohlen, damit zitierter Text richtiges Typenset hat
 \usepackage[numbered]{bookmark} % Für nummerierte PDF-Lesezeichen entsprechend der Chapter/Section-Nummer
@@ -270,7 +271,6 @@
 	\cleardoublepage
 	\pagenumbering{Roman}
 	\printbibliography
-
 
 	
 %	\bibliography{04_bib/bib}
